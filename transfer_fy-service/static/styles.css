@@ -1,0 +1,293 @@
+/* ========== DEFAULTS ========== */
+body {
+  background: linear-gradient(-45deg, #bd7e00, #247b9a, #9a2f3c);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Courier', monospace;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.header_container {
+  text-align: center;
+}
+
+.center_button {
+  margin: 0 auto;
+  display: block;
+}
+
+.normal_button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  font-family: 'Courier', monospace;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 2em;
+  text-align: center;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.675);
+}
+
+.middle_container {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2vw;
+}
+
+.middle_container form {
+  text-align: center;
+}
+
+.options_font {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* ========== LOGO ========== */
+
+.glitch_logo {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  margin-top: 4vw;
+  font-size: 6vw;
+  font-family: 'Courier', monospace;
+  letter-spacing: -0.6vw;
+}
+
+@media only screen and (max-width: 768px) {
+  .glitch_logo {
+    font-size: 16vw;
+    letter-spacing: -1.2vw;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+  }
+}
+
+.glitch_logo div {
+  animation: glitch 1s linear infinite;
+  position: relative;
+}
+
+.glitch_logo:before,
+.glitch_logo:after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+.glitch_logo:before {
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+.glitch_logo:after {
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62% {
+    transform: translate(0,0) skew(5deg); 
+  }
+}
+
+@keyframes glitchTop {
+  2%, 64% {
+    transform: translate(2px,-2px);
+  }
+  4%, 60% {
+    transform: translate(-2px,2px);
+  }
+  62% {
+    transform: translate(13px,-1px) skew(-13deg); 
+  }
+}
+
+@keyframes glitchBotom {
+  2%, 64% {
+    transform: translate(-2px,0);
+  }
+  4%, 60% {
+    transform: translate(-2px,0);
+  }
+  62% {
+    transform: translate(-22px,5px) skew(21deg); 
+  }
+}
+
+@keyframes wiggle {
+  0% { transform: skewX(24deg); }
+  10% { transform: skewX(-8deg); }
+  20% { transform: skewX(55deg); }
+  30% { transform: skewX(-90deg); }
+  40% { transform: skewX(29deg); }
+  50% { transform: skewX(-90deg); }
+  60% { transform: skewX(3deg); }
+  70% { transform: skewX(-2deg); }
+  80% { transform: skewX(1deg); }
+  90% { transform: skewX(10deg); }
+  100% { transform: skewX(0deg); }
+}
+
+
+/* ========== BUTTONS ========== */
+
+.glitch_button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  font-family: 'Courier', monospace;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 2em;
+  text-align: center;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.675);
+  text-shadow: 1px 1px rgba(246, 0, 153, 0.8), -1px -1px rgba(15, 210, 255, 0.8),
+    -1px 0px rgba(255, 210, 0, 1);
+}
+
+.glitch_button:hover {
+  animation: wiggle 5s;
+}
+
+.glitch_button:hover {
+  animation: wiggle 0.2s 2;
+  text-shadow: 30px 13px rgba(246, 0, 153, 0.8), -38px -4px rgba(15, 210, 255, 0.8),
+    -2px -4px rgba(255, 210, 0, 1);
+}
+
+.checkbox-wrapper-1 *,
+.checkbox-wrapper-1 ::after,
+.checkbox-wrapper-1 ::before {
+  box-sizing: border-box;
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted {
+  margin: 0;
+  width: 0;
+  line-height: 2em;
+  height: 0;
+  display: inline;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted + label:before {
+  content: "";
+  display: inline-block;
+  vertical-align: top;
+  height: 1.15em;
+  width: 1.15em;
+  margin-right: 0.6em;
+  color: rgba(0, 0, 0, 0.275);
+  border: solid 0.06em;
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em inset, 0 0 0 0.07em transparent inset;
+  border-radius: 0.2em;
+  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" fill="white" viewBox="0 0 9 9"><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>') no-repeat center, white;
+  background-size: 0;
+  will-change: color, border, background, background-size, box-shadow;
+  transform: translate3d(0, 0, 0);
+  transition: color 0.1s, border 0.1s, background 0.15s, box-shadow 0.1s;
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted:enabled:active + label:before,
+.checkbox-wrapper-1 [type=checkbox].substituted:enabled + label:active:before {
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset, 0 0 0 0.07em rgba(0, 0, 0, 0.1) inset;
+  background-color: #f0f0f0;
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted:checked + label:before {
+  background-color: #009443;
+  background-size: 0.75em;
+  color: rgba(0, 0, 0, 0.075);
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted:checked:enabled:active + label:before,
+.checkbox-wrapper-1 [type=checkbox].substituted:checked:enabled + label:active:before {
+  background-color: #009443;
+  color: rgba(0, 0, 0, 0.275);
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted:focus + label:before {
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset, 0 0 0 0.07em rgba(0, 0, 0, 0.1) inset, 0 0 0 3.3px rgba(0, 159, 0, 0.55), 0 0 0 5px rgba(0, 255, 60, 0.3);
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted:focus:active + label:before,
+.checkbox-wrapper-1 [type=checkbox].substituted:focus + label:active:before {
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset, 0 0 0 0.07em rgba(0, 0, 0, 0.1) inset, 0 0 0 3.3px rgba(0, 159, 0, 0.55), 0 0 0 5px rgba(0, 255, 60, 0.3);
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted:disabled + label:before {
+  opacity: 0.5;
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted.dark + label:before {
+  color: rgba(255, 255, 255, 0.275);
+  background-color: #222;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" fill="rgba(34, 34, 34, 0.999)" viewBox="0 0 9 9"><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>');
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted.dark:enabled:active + label:before,
+.checkbox-wrapper-1 [type=checkbox].substituted.dark:enabled + label:active:before {
+  background-color: #444;
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset, 0 0 0 0.07em rgba(255, 255, 255, 0.1) inset;
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted.dark:checked + label:before {
+  background-color: #a97035;
+  color: rgba(255, 255, 255, 0.075);
+}
+
+.checkbox-wrapper-1 [type=checkbox].substituted.dark:checked:enabled:active + label:before,
+.checkbox-wrapper-1 [type=checkbox].substituted.dark:checked:enabled + label:active:before {
+  background-color: #c68035;
+  color: rgba(0, 0, 0, 0.275);
+}

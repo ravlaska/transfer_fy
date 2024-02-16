@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <title>Transfer_Fy</title>
+</head>
+<body>
+  <div class="header_container">
+    <a href="/" class="glitch_logo" title="Transfer_Fy">Transfer_Fy</a>
+    <h3>Easily export, import and transfer Spotify playlists</h3>
+
+    <form action="/export_selection" method="POST">
+      <div class="options_font">Select Playlists to export:<br><br></div>
+      <div class="checkbox-wrapper-1">
+        {% for playlist in playlists['items'] %}
+        <input class="substituted" type="checkbox" id="{{ playlist['id'] }}" name="playlist_ids" value="{{ playlist['id'] }} | {{ playlist['name'] }}">
+        <label for="{{ playlist['id'] }}">{{ playlist['name'] }}</label><br>
+        {% endfor %}
+      </div>
+      <br>
+      <input type="submit" class="glitch_button center_button" value="Export">
+    </form>
+  </div>
+</body>
+</html>

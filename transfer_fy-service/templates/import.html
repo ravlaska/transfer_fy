@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <title>Transfer_Fy</title>
+</head>
+<body>
+  <div class="header_container">
+    <a href="/" class="glitch_logo" title="Transfer_Fy">Transfer_Fy</a>
+    <h3>Easily export, import and transfer Spotify playlists</h3>
+
+    <form action="/import_selection" method="post" enctype="multipart/form-data">
+      <div class="options_font">Upload playlists to import:<br><br></div>
+      <input type="file" class="glitch_button center_button" name="file" accept=".zip" id="fileInput"><br><br>
+      <label for="fileInput" class="normal_button center_button">Select File</label><br><br>
+      <input type="submit" class="glitch_button center_button" value="Upload">
+  </form>
+  </div>
+</body>
+</html>
