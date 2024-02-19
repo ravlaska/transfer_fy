@@ -9,4 +9,4 @@ RUN apk update && \
 COPY transfer_fy-service /tfservice
 WORKDIR /tfservice
 
-CMD ["/venv/bin/uwsgi", "--http", "0.0.0.0:8080", "--wsgi-file", "app.py", "--callable", "app", "--master"]
+CMD ["/venv/bin/uwsgi", "--http", "0.0.0.0:8888", "--wsgi-file", "app.py", "--callable", "app", "--master"]
