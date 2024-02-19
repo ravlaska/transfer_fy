@@ -1,4 +1,4 @@
-# transfer_fy
+# Transfer_Fy
 Simple project written in Python [Flask] for Spotify playlists export/import.
 
 <b>Instruction:</b>
@@ -10,3 +10,4 @@ Simple project written in Python [Flask] for Spotify playlists export/import.
         - You can configure it in ```docker-compose.yml```
     - Without contenerization: ```python3 app.py```
         - You need to install: ```python3, python3-pip``` and pip install: ```flask, requests, wheel, uwsgi```
+4. By default the port for accessing Transfer_Fy webpage is 8888, but you can change it in ```docker-compose.yml```
