@@ -32,7 +32,8 @@ def playlist_export_selection():
         return redirect('/error')
     
     # running script that exports playlists
-    subprocess.run(["python3", "scripts/playlists_export.py", session['user_id'], session['session_id'], session['access_token'], str(selected_playlists_ids)])
+    subprocess.run("source /venv/bin/activate", shell=True)
+    subprocess.run(["/venv/bin/python3", "scripts/playlists_export.py", session['user_id'], session['session_id'], session['access_token'], str(selected_playlists_ids)])
 
     # rewriting file to memory
     return_file = io.BytesIO()
@@ -80,7 +81,8 @@ def playlist_import_selection():
         file.save(os.path.join(upload_path, uploaded_file_name))
 
         # running script that is parsing playlists
-        playparser = subprocess.run(["python3", "scripts/playlists_parser.py", session['user_id'], uploaded_file_name, session['session_id']], stdout=subprocess.PIPE)
+        subprocess.run("source /venv/bin/activate", shell=True)
+        playparser = subprocess.run(["/venv/bin/python3", "scripts/playlists_parser.py", session['user_id'], uploaded_file_name, session['session_id']], stdout=subprocess.PIPE)
 
         # retrieving playlists data
         if playparser.returncode == 0:
@@ -112,7 +114,8 @@ def playlist_import_selected():
     refresh_access_token()
 
     # running script that imports playlists
-    subprocess.run(["python3", "scripts/playlists_upload.py", session['user_id'], session['access_token'], session['session_id'], str(selected_playlists_names)])
+    subprocess.run("source /venv/bin/activate", shell=True)
+    subprocess.run(["/venv/bin/python3", "scripts/playlists_upload.py", session['user_id'], session['access_token'], session['session_id'], str(selected_playlists_names)])
 
     # cleaning data
     if os.path.exists(f"uploads/{session['session_id']}"):
